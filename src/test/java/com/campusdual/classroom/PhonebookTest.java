@@ -31,11 +31,11 @@ class PhonebookTest {
     void testAddContactToPhonebook() {
         Contact c = new Contact("Name","Sur Name", "111222333");
         Phonebook p = new Phonebook();
-        int prevContactNumber = p.getData().size();
+        int prevContactNumber = p.gethMap().size();
         p.addContact(c);
-        int actContactNumber = p.getData().size();
+        int actContactNumber = p.gethMap().size();
         assertEquals(prevContactNumber+1, actContactNumber);
-        assertEquals(c, p.getData().get(c.getCode()));
+        assertEquals(c, p.gethMap().get(c.getCode()));
 
     }
 
@@ -44,11 +44,11 @@ class PhonebookTest {
         Contact c = new Contact("Name","Sur Name", "111222333");
         Phonebook p = new Phonebook();
         p.addContact(c);
-        int prevContactNumber = p.getData().size();
+        int prevContactNumber = p.gethMap().size();
         p.deleteContact(c.getCode());
-        int actContactNumber = p.getData().size();
+        int actContactNumber = p.gethMap().size();
         assertEquals(prevContactNumber-1, actContactNumber);
-        assertNull(p.getData().get(c.getCode()));
+        assertNull(p.gethMap().get(c.getCode()));
     }
 
     @Test
